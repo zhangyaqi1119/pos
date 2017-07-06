@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>POS快餐收银系统</title>
+    <link rel="icon" href="images/1.png ">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/Posindex.css">
+    <link rel="stylesheet" href="icon/iconfont.css">
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+<div class="left col-md-2">
+    <div class="div1">
+        <p>欢迎 <span class="h4 text-primary"> <%= user_login.username%></span>  登录收银系统</p>
+        <div class="left_top"><img src="images/bbb_01.jpg"><img src="images/bbb_02.jpg" id="2"><img src="images/bbb_03.jpg"><img src="images/bbb_04.jpg"> </div>
+        <div class="div2"><div class="jbsz">  <i class="icon iconfont icon-goumai"></i> </div>
+            <a href="#/Cashier">收银</a></div>
+        <div class="div3">
+        </div>
+        <div class="div2"><div class="xwzx"> <i class="icon iconfont icon-dianpu"></i>  </div>店铺</div>
+        <div class="div3">
+            <ul>
+                <li><a href="#/store_type">店铺分类</a></li>
+                <li><a href="#/store_add">添加店铺</a></li>
+                <li><a href="#/store_manage">店铺管理</a></li>
+            </ul>
+        </div>
+        <div class="div2"><div class="zxcp"> <i class="icon iconfont icon-hanbao"></i></div>商品</div>
+        <div class="div3">
+            <ul>
+                <li><a href="#/goods_type">商品分类</a></li>
+                <li><a href="#/goods_add">添加商品</a></li>
+                <li><a href="#/goods_manage">商品管理</a></li>
+            </ul>
+        </div>
+        <div class="div2"><div class="lmtj">  <i class="icon iconfont icon-huiyuanqia"></i></div> 会员</div>
+        <div class="div3">
+            <ul>
+                <li><a href="#/member_add">添加会员</a></li>
+                <li><a href="#/member_manage">会员管理</a></li>
+            </ul>
+        </div>
+        <div class="div2"><div class="lmtj">  <i class="icon iconfont icon-huiyuanqia"></i></div>
+            <a href="#/user_manage">用户</a></div>
+        <div class="div3">
+        </div>
+        <div class="div2"><div class="set"><i class="icon iconfont icon-gongnengjianyi"></i></div>
+            <a href="/login">退出</a></div>
+        <div class="div3">
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div>
+    <div class="page-header h3">会员管理</div>
+    <table class="table table-striped text-center">
+        <thead class="text-center">
+        <th class="text-center">_id</th>
+        <th class="text-center">会员名称</th>
+        <th class="text-center">添加时间</th>
+        <th class="text-center">编辑</th>
+        </thead>
+        <tbody class="text-center">
+        <tr ng-repeat="members in membersAll">
+            <td>{{members._id}}</td>
+            <td>{{members.member}}</td>
+            <td>{{members.creat_data}}</td>
+            <td><span class="edit" ng-click="edit(members._id,members.member)">修改</span>  | <a href="/memberAdd/remove?member={{members.member}}">删除</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">修改会员</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="_id" class="control-label col-md-3">_id：</label>
+                        <div class=" col-md-6">
+                            <input type="text" ng-model="_id" class="form-control"  name="_id" id="_id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="store_add" class="control-label col-md-3">会员名称：</label>
+                        <div class=" col-md-6">
+                            <input type="text" ng-model="member" class="form-control"  name="store_add" id="store_add">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" ng-click="editSubmit()">确认修改</button>
+            </div>
+        </div>
+    </div>
+</div>

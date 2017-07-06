@@ -1,0 +1,60 @@
+<% include header.ejs%>
+<div class="container">
+    <div class="col-md-10" ui-view>
+    </div>
+    <input type="hidden" value="<%= userAll %>" id="userAll">
+</div>
+<script src="js/layer.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+    var userAll=$('#userAll').val()
+    var  storeAll, storesAll,goodsType,goodsAll,membersAll
+        //获取店铺分类
+    $.ajax({
+        url:'/front/store',
+        type:'get',
+        success:function(res){
+            var stores=res.storeAll
+            storeAll=stores
+        }
+    })
+    //获取所有店铺
+    $.ajax({
+        url:'/front/stores',
+        type:'get',
+        success:function(res){
+            var storesall=res.storesAll
+            storesAll=storesall
+        }
+    })
+    //获取商品分类
+    $.ajax({
+        url:'/goodstype',
+        type:'get',
+        success:function(res){
+            var goodstype=res.goodstype
+            goodsType=goodstype
+        }
+    })
+    //获取所有的商品
+    $.ajax({
+        url:'/goodstype/goodsall',
+        type:'get',
+        success:function(res){
+            var goodsall=res.goodsAll
+            goodsAll=goodsall
+        }
+    })
+    //获取所有的会员
+    $.ajax({
+        url:'/memberAdd/membersall',
+        type:'get',
+        success:function(res){
+            var membersall=res.membersall
+            membersAll=membersall
+        }
+    })
+
+</script>
+<% include footer.ejs%>
+

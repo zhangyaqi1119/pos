@@ -1,0 +1,56 @@
+<div>
+    <div class="page-header text-primary h2" >
+        用户列表
+    </div>
+    <div>
+        <table class="table table-hover text-center">
+          <thead >
+              <th class="text-center">用户名</th>
+              <th class="text-center">密码</th>
+              <th class="text-center">创建时间</th>
+              <th class="text-center">编辑</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="user in userAll">
+                <td>{{user.username}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.creat_data}}</td>
+                <td><span class="edit" ng-click="edit(user._id,user.username)"><input type="hidden" ng-value="user._id">编辑</span> | <a href="/usermanage/remove?user={{user.username}}">删除</a></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">编辑用户</h4>
+            </div>
+            <div class="modal-body">
+                <form id="edit-form" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="username" class="col-md-2 control-label">用户名：</label>
+                        <div class="col-md-10">
+                            <input ng-model="username" class="form-control" id="username" type="text" name="username" placeholder="请输入用户名" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-md-2 control-label">密码:</label>
+                        <div class="col-md-10">
+                            <input ng-model="password" class="form-control" id="password" type="password" name="password" placeholder="请输入密码" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" ng-click="editSubmit()">确认修改</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

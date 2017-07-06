@@ -1,0 +1,146 @@
+<div class="col-md-4">
+    <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">结账</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">挂单</a></li>
+            <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">外卖</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <table class="table table-striped">
+                   <thead>
+                   <th>商品名称</th>
+                   <th>金额</th>
+                   <th>数量</th>
+                   <th>操作</th>
+                   </thead>
+                    <tbody>
+                    <tr ng-repeat="goods in cart">
+                        <td>{{goods.goods_add}}</td>
+                        <td>{{goods.goods_price}}</td>
+                        <td><input type="number" min="1"  ng-change="addTotalMoney()" ng-model="goods.count" class="form-control"></td>
+                        <td><a href="javascript:void(0)" ng-click="del($index)" style="text-decoration: none">删除</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p>总计：<span>{{totalMoney}}元</span></p>
+            </div>
+        </div>
+    <div>
+        <input class="btn btn-default col-md-offset-1" type="button" value="结账">
+    </div>
+</div>
+<div class="col-md-8 ">
+    <div>
+        <h5>常用商品</h5>
+        <p>
+            <input style="margin-bottom: 15px" ng-repeat="goods in goodsAll" ng-click="addLeft($index)" type="button" class="btn btn-default col-md-offset-1"  value="{{goods.goods_add}}   {{goods.goods_price}}">
+        </p>
+    </div>
+    <br>
+    <hr style="height: 1px;background: #cccccc;width: 100%">
+    <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#staple_food" aria-controls="staple_food" role="tab" data-toggle="tab">主食类</a></li>
+            <li role="presentation"><a href="#snacks_food" aria-controls="snacks_food" role="tab" data-toggle="tab">小食类</a></li>
+            <li role="presentation"><a href="#drink" aria-controls="drink" role="tab" data-toggle="tab">饮料类</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="staple_food">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/1.jpg" alt="香辣鸡腿堡" title="香辣鸡腿堡">
+                            <div class="caption">
+                                <p>香辣鸡腿堡  18元</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/2.jpg" alt="田园鸡脆堡" title="田园鸡脆堡">
+                            <div class="caption">
+                                <p>田园脆鸡堡 8.00元</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/3.jpg" alt="新奥尔良烤腿堡" title="新奥尔良烤腿堡">
+                            <div class="caption">
+                                <p>新奥尔良烤腿堡 13.50元</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="snacks_food">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/4.jpg" alt="避风塘热辣脆皮鸡" title="避风塘热辣脆皮鸡">
+                            <div class="caption">
+                                <p>避风塘热辣脆皮鸡  11.00元/块</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/5.jpg" alt="藤椒肯大大鸡排" title="藤椒肯大大鸡排">
+                            <div class="caption">
+                                <p>藤椒肯大大鸡排 11.00元/份</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/6.jpg" alt="小食拼盘" title="小食拼盘">
+                            <div class="caption">
+                                <p>小食拼盘 29.00元/份</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="drink">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/7.jpg" alt="草莓双旋冰淇淋花筒" title="草莓双旋冰淇淋花筒">
+                            <div class="caption">
+                                <p>草莓双旋冰淇淋花筒  8.00元/个</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/8.jpg" alt="新草莓圣代" title="新草莓圣代">
+                            <div class="caption">
+                                <p>新草莓圣代 11.00元/份</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="images/9.jpg" alt="粉红百事可乐" title="粉红百事可乐">
+                            <div class="caption">
+                                <p>粉红百事可乐 10.00元/杯</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#myTabs a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>

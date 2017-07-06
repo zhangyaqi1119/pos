@@ -1,0 +1,64 @@
+<div >
+    <div class="page-header h3">商品管理</div>
+    <table class="table table-striped col-md-8 text-center">
+        <thead>
+        <th class="text-center">商品分类</th>
+        <th class="text-center">商品名称</th>
+        <th class="text-center">商品价格</th>
+        <th class="text-center">添加时间</th>
+        <th class="text-center">编辑</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="goods in goodsAll">
+            <td>{{goods.type.goodsType}}</td>
+            <td>{{goods.goods_add}}</td>
+            <td> {{goods.goods_price}}</td>
+            <td>{{goods.creat_data}}</td>
+            <td><span id="edit" ng-click="edit(goods._id,goods.goods_add,goods.type.goodsType,goods.goods_price)">修改</span> <input type="hidden" ng-value="goods._id"> | <a href="/goodstype/remove?goods={{goods.goods_add}}">删除</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="update" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">编辑商品</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="goods_type" class="control-label col-md-3">商品分类：</label>
+                        <div class=" col-md-6">
+                            <input type="text" ng-model="goodsType" class="form-control" placeholder="请输入商品分类" name="goodsType" id="goods_type">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="_id" class="control-label col-md-3">_id：</label>
+                        <div class=" col-md-6">
+                            <input type="text" ng-model="_id" class="form-control" name="_id" id="_id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="goods_add" class="control-label col-md-3">商品名称：</label>
+                        <div class=" col-md-6">
+                            <input type="text" ng-model="goods_add" class="form-control" placeholder="请输入商品名称" name="goods_add" id="goods_add">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="goods_price" class="control-label col-md-3">商品价格：</label>
+                        <div class=" col-md-6">
+                            <input type="text" ng-model="goods_price" class="form-control" placeholder="请输入商品价格" name="goods_price" id="goods_price">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" ng-click="editSubmit()">确认修改</button>
+            </div>
+        </div>
+    </div>
+</div
